@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/Pratham12300/Handson.git'
+            }
+        }
+        stage('Run JMeter Test') {
+            steps {
+                sh 'jmeter -n -t HandsOn53.jmx -l result.jtl'
+            }
+        }
+    }
+}
